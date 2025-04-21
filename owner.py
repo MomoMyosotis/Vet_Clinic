@@ -1,4 +1,5 @@
 # owner
+
 class Owner:
     def __init__(self, name, surname, CF, bday, gender):
         self.name = name
