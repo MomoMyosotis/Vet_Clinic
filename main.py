@@ -1,5 +1,6 @@
 # vet clinic emulator
 import impslist
+import currently as C
 
 # pulizia
 def cls():
@@ -17,7 +18,7 @@ def starting():
     # all'inizio la clinca ha random n animali in cura
 
     generator = impslist.random.randint(1,13)
-    impslist.R.dynamic_pets(generator)
+    C.dynamic_pets(generator)
 
 ##################################################
 #           Flow
