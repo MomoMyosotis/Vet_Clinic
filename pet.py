@@ -22,7 +22,8 @@ class Pet:
     # methods -> what it does
 
     def birth(self):
-        print(f"{self.id} has born at ", end="")
+
+        print(f"{self.name} has born at ", end="")
         impslist.main.rtime()
 
     def death(self):
@@ -56,38 +57,38 @@ class Pet:
 def action(miao, pet):
     if miao == 1:
         # Caso 1: far nascere l'animale
-        pet.birth()
+        pet.birth(pet)
 
     elif miao == 2:
         # Caso 2: l'animale è morto
-        pet.death()
+        pet.death(pet)
 
     elif miao == 3:
         # Caso 3: l'animale mangia
-        pet.eat()
+        pet.eat(pet)
 
     elif miao == 4:
         # Caso 4: l'animale si muove
-        pet.move()
+        pet.move(pet)
 
     elif miao == 5:
         # Caso 5: l'animale gioca
-        pet.play()
+        pet.play(pet)
 
     elif miao == 6:
         # Caso 6: l'animale dorme
-        pet.sleep()
+        pet.sleep(pet)
 
     elif miao == 7:
         # Caso 7: l'animale ti giudica
-        pet.judge()
+        pet.judge(pet)
 
     elif miao == 8:
         # Caso 8: l'animale viene ammesso in clinica
-        pet.admitted()
+        pet.admitted(pet)
     elif miao == 9:
         # Caso 9: l'animale viene dimesso dalla clinica
-        pet.dismissed()
+        pet.dismissed(pet)
 
     else:
         # Caso di errore se miao non è valido

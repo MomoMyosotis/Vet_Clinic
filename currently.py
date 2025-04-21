@@ -3,11 +3,12 @@ import impslist
 
 # lar = lista animali registrati
 lar = impslist.Ls.PL
+# lpr = lista proprietari registrati
+Lpr = impslist.Ls.OL
 
 # liste dinamiche
 animali = []
 proprietari = []
-
 
 # crea la lista di tutti gli animali presenti allinizio dato quack random nell'elenco di animali totali
 def dynamic_pets(quack):
@@ -20,7 +21,6 @@ def dynamic_pets(quack):
 
 
 # stampa la lista dei proprietari -> deve trovare i CF legati agli animali
-def r_owner():
-    print("current present owners:")
+#               YET TO DO
 
 # last line
