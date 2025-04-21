@@ -18,6 +18,7 @@ def dynamic_pets(quack):
     print(f"there are currentl {quack} pets in the clinic.")
     animali.extend(impslist.random.sample(lar, quack))
     impslist.Ls.POL(animali)
+    return animali
 
 
 # stampa la lista dei proprietari -> deve trovare i CF legati agli animali

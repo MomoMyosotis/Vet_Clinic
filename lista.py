@@ -3,25 +3,21 @@ import impslist
 OL = []
 PL = []
 
-def avvio():
-    # crea la lista di tutti i proprietari esistenti
-    def owner_list():
-        for name in dir(impslist.entitties):
-            quack = getattr(impslist.entitties, name)
-            if isinstance(quack, impslist.Owner):
-                OL.append(quack)
-        #PPL(PL)
+# crea la lista di tutti i proprietari esistenti
+def owner_list():
+    for name in dir(impslist.entitties):
+        quack = getattr(impslist.entitties, name)
+        if isinstance(quack, impslist.Owner):
+            OL.append(quack)
+    PPL(OL)
 
-    # crea la lista di tutti gli animali esistenti
-    def pets_list():
-        for name in dir(impslist.entitties):
-            noot = getattr(impslist.entitties, name)
-            if isinstance(noot, impslist.Pet):
-                PL.append(noot)
-        #POL(PL)
-
-    owner_list()
-    pets_list()
+# crea la lista di tutti gli animali esistenti
+def pets_list():
+    for name in dir(impslist.entitties):
+        noot = getattr(impslist.entitties, name)
+        if isinstance(noot, impslist.Pet):
+            PL.append(noot)
+    POL(PL)
 
 # stampa la lista degli animali
 def POL(n):
@@ -31,12 +27,16 @@ def POL(n):
         print(f"{x +1}. ", end="")
         print(n[x])
         x += 1
+    print("")
 
 # stampa la lista dei proprietari
-def PPL():
+def PPL(n):
     x = 0
     print("the list of owners:\n")
-    while x != len(OL):
+    while x != len(n):
         print(f"{x +1}. ", end="")
-        print(OL[x])
+        print(n[x])
         x +=1
+    print("")
+
+# last line
