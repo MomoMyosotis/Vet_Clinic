@@ -14,6 +14,7 @@ def dynamic_pets(quack):
 
     if quack > len(lar):
         print("error 3")
+    print(f"there are currentl {quack} pets in the clinic.")
     animali.extend(impslist.random.sample(lar, quack))
     impslist.Ls.POL(animali)
 

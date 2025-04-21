@@ -9,20 +9,20 @@ def cls():
 
 #################################################àà
 def initial_check():
-    impslist.Ls.owner_list()
-    impslist.Ls.pets_list()
     print("\n________________________\n")
     impslist.Ls.PPL()
+    impslist.Ls.POL()
 
 def starting():
     # all'inizio la clinca ha random n animali in cura
-
     generator = impslist.random.randint(1,13)
     C.dynamic_pets(generator)
 
 ##################################################
 #           Flow
-initial_check()
-starting()
+def main():
+    impslist.Ls.avvio()
+    starting()
 
+main()
 # last line
