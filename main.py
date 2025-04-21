@@ -54,7 +54,7 @@ def main():
     related_pet = []
     print(len(C.animali))
     related_pet = impslist.random.sample(C.animali, len(related_pet))
-    impslist.pet.action((new_action, related_pet))
+    impslist.pet.action(new_action, related_pet)
 
 main()
 # last line
