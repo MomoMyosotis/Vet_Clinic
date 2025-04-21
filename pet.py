@@ -27,7 +27,6 @@ class Pet:
     def play(self):
         print(f"{self.name} loves to play with {self.owner.name}")
 
-
     def sleep(self):
         print(f"{self.name} is currently sleeping. is it normal at {self.age} years old {self.species}?")
 

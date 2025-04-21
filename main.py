@@ -1,42 +1,27 @@
-from pet import Pet
-from owner import Owner
-import os
-import time
-import random
-import lista as Ls
+# vet clinic emulator
+import impslist
 
 # pulizia
 def cls():
-    time.sleep(4)
-    os.system("clear")
+    impslist.time.sleep(2)
+    impslist.os.system("clear")
 
-# liste dinamiche
-animali = []
-proprietari = []
-
-Ls.owner_list()
-Ls.pets_list()
-Ls.POL()
-print("\n________________________\n")
-Ls.PPL()
+#################################################àà
+def initial_check():
+    impslist.Ls.owner_list()
+    impslist.Ls.pets_list()
+    print("\n________________________\n")
+    impslist.Ls.PPL()
 
 def starting():
-    # all'inizio la clinca ha 4 animali in cura
+    # all'inizio la clinca ha random n animali in cura
 
-    print("starting() started")
+    generator = impslist.random.randint(1,13)
+    impslist.R.dynamic_pets(generator)
 
-
-    generator = random.randint(1,13)
-    x = 0
-
-    while x < generator:
-
-
-        x += 1
-
-    print("starting() ended.")
-
-
-
+##################################################
+#           Flow
+initial_check()
+starting()
 
 # last line

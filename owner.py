@@ -8,7 +8,7 @@ class Owner:
         self.gender = gender
 
     def __str__(self):
-        return self.CF
+        return f"{self.CF}"
 
     def birthday(self):  # DEVE essere qui, NON indentato dentro __init__
         if self.gender == 'M':

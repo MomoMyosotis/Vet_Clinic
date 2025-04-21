@@ -1,7 +1,6 @@
 # gli oggetti creatis
-
-from owner import Owner
-from pet import Pet
+from impslist import Owner
+from impslist import Pet
 
 # owner -> 0 dipendenze (goes up)
 owner_1 = Owner("Puffetto", "Spaziale", "MY050T1S", "14th of december", "M")
