@@ -1,6 +1,6 @@
 # gli oggetti creatis
-from impslist import Owner
-from impslist import Pet
+from owner import Owner
+from pet import Pet
 
 # owner -> 0 dipendenze (goes up)
 owner_1 = Owner("Puffetto", "Spaziale", "MY050T1S", "14th of december", "M")
@@ -9,6 +9,10 @@ owner_3 = Owner("Greta", "Crotone", "G1R450L1", "22th of november", "F")
 owner_4 = Owner("Emily", "IDK", "C1CL4M1N1", "3th of genuary", "F")
 owner_5 = Owner("Nicole", "Chinellato", "M4RGH3R1T4", "28th of april", "F")
 owner_6 = Owner("Jacopo", "Moraldini", "L0T0814NC0", "2th of october", "M")
+owner_7 = Owner("Luca", "Bertoldi", "P1L4V3L0", "15th of March", "M")
+owner_8 = Owner("Giulia", "Verdi", "G4L123V", "22th of May", "F")
+owner_9 = Owner("Stefano", "D'Ambrosio", "S3TA1C0", "12th of June", "M")
+owner_10 = Owner("Francesca", "Giansanti", "F4NC3S9", "5th of July", "F")
 
 # pet -> 1 dipendenza (goes down)
 pet_1 = Pet("Pollosauro", 1.2, "120 g", "30 cm", "Nooty", "00001", "Healthy", owner_1)
@@ -24,5 +28,12 @@ pet_10 = Pet("Cane a molla", 1, "8 kg", "50 cm", "Slinky", "00010", "Joint issue
 pet_11 = Pet("Coniglius paranoicus", 6, "4.2 kg", "30 cm", "Twitch", "00011", "Mild conspiracy tendencies", owner_3)
 pet_12 = Pet("Topus gladiator", 0.9, "0.8 kg", "20 cm", "Spartacchio", "00012", "Aggressively patriotic", owner_4)
 pet_13 = Pet("Cacatua metallum", 10, "12 kg", "55 cm", "Rocky", "00013", "Addicted to heavy metal", owner_5)
+pet_14 = Pet("Leone Ballerino", 200, "250 kg", "120 cm", "Rex", "00014", "Dancer at heart", owner_7)
+pet_15 = Pet("Squalo Sognante", 1500, "800 kg", "6 m", "Sharky", "00015", "Dreams of the ocean", owner_8)
+pet_16 = Pet("Cervo Curioso", 20, "200 kg", "150 cm", "Bambi", "00016", "Loves to explore", owner_9)
+pet_17 = Pet("Cane Nube", 9, "20 kg", "65 cm", "Cloudy", "00017", "Is afraid of rain", owner_10)
+pet_18 = Pet("Gatto Cosmico", 4, "4 kg", "45 cm", "Nebula", "00018", "Not of this world", owner_7)
+pet_19 = Pet("Tigre Elettrica", 300, "220 kg", "180 cm", "Volt", "00019", "Electrified fur", owner_9)
+pet_20 = Pet("Foca Acrobatica", 70, "100 kg", "150 cm", "Flippy", "00020", "Master of flips", owner_8)
 
 # last line
