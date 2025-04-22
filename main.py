@@ -10,11 +10,6 @@ def cls():
     impslist.time.sleep(2)
     impslist.os.system("clear")
 
-# generate a rondom time
-def rtime():
-    hour = {impslist.random(1,24)}
-    minute = {impslist.random(1,59)}
-    return hour, minute
 
 #################################################
 # # crea una lista con tutti i pets e gli owner
@@ -47,13 +42,11 @@ def main():
     for x in nascituri:
         print(f"{x.name}")
     """
-    #    raa = impslist.random.randint(1,9) # random animal action
-    #    impslist.Pet.action(impslist.random.sample(C.animali, raa))
 
     new_action = impslist.random.randint(1,9)
     related_pet = []
     print(len(C.animali))
-    related_pet = impslist.random.sample(C.animali, len(related_pet))
+    related_pet = impslist.random.sample(C.animali, 1)[0]
     impslist.pet.action(new_action, related_pet)
 
 main()

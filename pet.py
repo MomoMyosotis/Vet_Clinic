@@ -1,6 +1,12 @@
 # pet
 import impslist
 
+# generate a rondom time
+def rtime():
+    hour = {impslist.random(1,24)}
+    minute = {impslist.random(1,59)}
+    return print(f"{hour}:{minute}")
+
 
 class Pet:
     # INIT METHOD COSTRUISCE I METODI -> __init__(self):
@@ -24,14 +30,15 @@ class Pet:
     def birth(self):
 
         print(f"{self.name} has born at ", end="")
-        impslist.main.rtime()
+        rtime()
 
     def death(self):
         print(f"{self.name} has died at ", end="")
-        impslist.main.rtime()
+        rtime()
 
     def eat(self):
-        print(f"{self.name} is eating")
+        print(f"{self.name} is eating at ", end="")
+        rtime()
 
     def move(self):
         print(f"{self.name} is moving according to what being {self.species} allows")
@@ -40,55 +47,56 @@ class Pet:
         print(f"{self.name} loves to play with {self.owner.name}")
 
     def sleep(self):
-        print(f"{self.name} is currently sleeping. is it normal at {self.age} years old {self.species}?")
+        print(f"{self.name} has been sleeping since: ")
+        rtime()
 
     def judge(self):
         print(f"{self.name} is judging you")
 
     def admitted(self):
-        print(f"{self.name} has been admitted to the clinic at: ", end="")
-        impslist.main.rtime()
+        print(f"{self.name} has been admitted to the clinic at ", end="")
+        rtime()
 
     def dismissed(self):
-        print(f"{self.name} has been dismissedd from the clinc at: ", end="")
-        impslist.main.rtime()
+        print(f"{self.name} has been dismissedd from the clinc at ", end="")
+        rtime()
 
 #   per avviare l'azione di ogni pet
 def action(miao, pet):
     if miao == 1:
         # Caso 1: far nascere l'animale
-        pet.birth(pet)
+        pet.birth()
 
     elif miao == 2:
         # Caso 2: l'animale è morto
-        pet.death(pet)
+        pet.death()
 
     elif miao == 3:
         # Caso 3: l'animale mangia
-        pet.eat(pet)
+        pet.eat()
 
     elif miao == 4:
         # Caso 4: l'animale si muove
-        pet.move(pet)
+        pet.move()
 
     elif miao == 5:
         # Caso 5: l'animale gioca
-        pet.play(pet)
+        pet.play()
 
     elif miao == 6:
         # Caso 6: l'animale dorme
-        pet.sleep(pet)
+        pet.sleep()
 
     elif miao == 7:
         # Caso 7: l'animale ti giudica
-        pet.judge(pet)
+        pet.judge()
 
     elif miao == 8:
         # Caso 8: l'animale viene ammesso in clinica
-        pet.admitted(pet)
+        pet.admitted()
     elif miao == 9:
         # Caso 9: l'animale viene dimesso dalla clinica
-        pet.dismissed(pet)
+        pet.dismissed()
 
     else:
         # Caso di errore se miao non è valido
