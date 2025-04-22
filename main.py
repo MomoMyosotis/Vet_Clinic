@@ -32,7 +32,7 @@ def main():
     initial_check()
     cls()
     print("\n\n_________________________________________")
-    generator = impslist.random.randint(1,13)
+    generator = impslist.random.randint(1,21)
     temp = C.dynamic_pets(generator)
     print("_________________________________________\n\n")
 
@@ -40,25 +40,30 @@ def main():
     while True:
         new_action = impslist.random.randint(1,9)
         related_pet = []
-        print(f"{new_action} ---------------")
-        if new_action == 1 or new_action == 8:
+        # avalable -> lista complementare a C.animali
+        avalable = [pet for pet in impslist.Ls.PL if pet not in C.animali]
+
+        if new_action in [1, 8]:
             # pesca da lista di non presenti
-            while related_pet not in C.animali:
-                related_pet = impslist.random.sample(impslist.Ls.PL, 1)[0]
-            C.animali.append(related_pet)
-            impslist.pet.action(new_action, related_pet)
-        elif new_action == 2 or new_action == 9:
+            if avalable:
+                related_pet = impslist.random.choice(avalable)
+                C.animali.append(related_pet)
+                impslist.pet.action(new_action, related_pet)
+
+        elif new_action in [2, 9]:
             #remove from list
-            related_pet = impslist.random.sample(C.lar,1)[0]
-            impslist.pet.action(new_action, related_pet)
-            C.lar.remove(related_pet)
-            C.animali.append(related_pet)
-        elif new_action == 3 or new_action == 4 or new_action == 5 or new_action == 6 or new_action == 7:
+            if not avalable:
+                related_pet = impslist.random.sample(C.lar,1)[0]
+                impslist.pet.action(new_action, related_pet)
+                C.animali.remove(related_pet)
+
+        elif new_action in [3, 4, 5, 6, 7]:
             related_pet = impslist.random.sample(C.animali, 1)[0]
             impslist.pet.action(new_action, related_pet)
+
         else:
             print("error 6")
-        impslist.time.sleep(1)
+        impslist.time.sleep(impslist.random.uniform(0.2 , 2))
 
 main()
 # last line
