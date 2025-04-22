@@ -10,8 +10,4 @@ ths program will serve as practice for the project of software engeneering that 
 (https://github.com/ALBERTOFFFEN/Progetto_Ingegneria) -> once terminated I'll add it to my profile too
 and also will serve as a good base for the project Eclipse
 
-YET TO ADD  -> funzione che elimina i cadaveri dalla lista
-            -> funzione che permetta anche ad altri animali di entrare nella clinica tramite ammissione o nascita
-            -> sistemare il prob del rand che da la stessa operazione per tutti quanti
-
 - Myosotis

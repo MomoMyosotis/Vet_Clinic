@@ -35,5 +35,7 @@ pet_17 = Pet("Cane Nube", 9, "20 kg", "65 cm", "Cloudy", "00017", "Is afraid of 
 pet_18 = Pet("Gatto Cosmico", 4, "4 kg", "45 cm", "Nebula", "00018", "Not of this world", "P1L4V3L0")
 pet_19 = Pet("Tigre Elettrica", 300, "220 kg", "180 cm", "Volt", "00019", "Electrified fur", "S3TA1C0")
 pet_20 = Pet("Foca Acrobatica", 70, "100 kg", "150 cm", "Flippy", "00020", "Master of flips", "G4L123V")
+pet_21 = Pet("peachy penguosus", 10, "2 kg", "40 cm", "pingu", "00021", "peachy", "P4P4V3R1")
+
 
 # last line
