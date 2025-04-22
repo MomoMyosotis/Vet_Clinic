@@ -30,11 +30,11 @@ def get_by_attr(obj_list, target_value, attr_name):
 def main():
 
     initial_check()
-    cls()
-    print("\n\n_________________________________________")
+#    cls()
+#    print("\n\n_________________________________________")
     generator = impslist.random.randint(1,13)
     temp = C.dynamic_pets(generator)
-    print("_________________________________________\n\n")
+#    print("_________________________________________\n\n")
 
 
     while True:

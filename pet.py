@@ -47,7 +47,7 @@ class Pet:
         print(f"{self.name} loves to play with {self.owner}")
 
     def sleep(self):
-        print(f"{self.name} has been sleeping since: ")
+        print(f"{self.name} has been sleeping since: ", end="")
         rtime()
 
     def judge(self):

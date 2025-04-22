@@ -9,7 +9,7 @@ def owner_list():
         quack = getattr(impslist.entitties, name)
         if isinstance(quack, impslist.Owner):
             OL.append(quack)
-    PPL(OL)
+#    PPL(OL)
 
 # crea la lista di tutti gli animali esistenti
 def pets_list():
@@ -17,7 +17,7 @@ def pets_list():
         noot = getattr(impslist.entitties, name)
         if isinstance(noot, impslist.Pet):
             PL.append(noot)
-    POL(PL)
+#    POL(PL)
 
 # stampa la lista degli animali
 def POL(n):
