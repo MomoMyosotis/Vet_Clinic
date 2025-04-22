@@ -44,7 +44,7 @@ class Pet:
         print(f"{self.name} is moving according to what being {self.species} allows")
 
     def play(self):
-        print(f"{self.name} loves to play with {self.owner.name}")
+        print(f"{self.name} loves to play with {self.owner}")
 
     def sleep(self):
         print(f"{self.name} has been sleeping since: ")

@@ -36,17 +36,10 @@ def main():
     temp = C.dynamic_pets(generator)
     print("_________________________________________\n\n")
 
-    """
-    nati = impslist.random.randint(1, generator)
-    nascituri = impslist.random.sample(C.animali, nati)
-    for x in nascituri:
-        print(f"{x.name}")
-    """
-
-    new_action = impslist.random.randint(1,9)
-    related_pet = []
 
     while True:
+        new_action = impslist.random.randint(1,9)
+        related_pet = []
         related_pet = impslist.random.sample(C.animali, 1)[0]
         impslist.pet.action(new_action, related_pet)
         impslist.time.sleep(1)
