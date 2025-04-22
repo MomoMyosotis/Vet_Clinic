@@ -45,9 +45,11 @@ def main():
 
     new_action = impslist.random.randint(1,9)
     related_pet = []
-    print(len(C.animali))
-    related_pet = impslist.random.sample(C.animali, 1)[0]
-    impslist.pet.action(new_action, related_pet)
+
+    while True:
+        related_pet = impslist.random.sample(C.animali, 1)[0]
+        impslist.pet.action(new_action, related_pet)
+        impslist.time.sleep(1)
 
 main()
 # last line

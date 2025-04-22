@@ -3,8 +3,8 @@ import impslist
 
 # generate a rondom time
 def rtime():
-    hour = {impslist.random(1,24)}
-    minute = {impslist.random(1,59)}
+    hour = {impslist.random.randint(1,23)}
+    minute = {impslist.random.randint(1,59)}
     return print(f"{hour}:{minute}")
 
 
