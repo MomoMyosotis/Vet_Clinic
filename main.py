@@ -44,11 +44,15 @@ def main():
         if new_action == 1 or new_action == 8:
             # pesca da lista di non presenti
             while related_pet not in C.animali:
-                related_pet = impslist.random.sample(C.lar, 1)[0]
+                related_pet = impslist.random.sample(impslist.Ls.PL, 1)[0]
+            C.animali.append(related_pet)
+            impslist.pet.action(new_action, related_pet)
         elif new_action == 2 or new_action == 9:
             #remove from list
             related_pet = impslist.random.sample(C.lar,1)[0]
+            impslist.pet.action(new_action, related_pet)
             C.lar.remove(related_pet)
+            C.animali.append(related_pet)
         elif new_action == 3 or new_action == 4 or new_action == 5 or new_action == 6 or new_action == 7:
             related_pet = impslist.random.sample(C.animali, 1)[0]
             impslist.pet.action(new_action, related_pet)
