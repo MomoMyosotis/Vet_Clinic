@@ -4,15 +4,22 @@ import currently as C
 ##################################################
 # generate a rondom time
 def rtime():
-    hour = {impslist.random.randint(1,23)}
-    minute = {impslist.random.randint(1,59)}
-    return print(f"{hour}:{minute}")
-
+    hour = impslist.random.randint(1,23)
+    minute = impslist.random.randint(1,59)
+    if hour > 9 and minute > 9:
+        return print(f"{hour}:{minute}")
+    elif hour < 9 and minute > 9:
+        return print(f"0{hour}:{minute}")
+    elif hour > 9 and minute < 9:
+        return print(f"{hour}:0{minute}")
+    else:
+        return print(f"0{hour}:0{minute}")
 ###################################################
 # clean
 def cls():
     impslist.time.sleep(2)
-    impslist.os.system("clear")
+    impslist.os.system("cls" if impslist.os.name == "nt" else "clear")
+
 
 #################################################
 # create a list with all pets and owners
@@ -21,13 +28,13 @@ def initial_check():
     impslist.Ls.pets_list()
 
 ##################################################
-#   given the id returns any info you're searching for
-#   both for pet && owner
+#   given the CF of the owner returns the pet
 def gar(obj_list, target_value, attr_name):
     for obj in obj_list:
-        if getattr(obj, attr_name) == target_value:
+        if getattr(obj, attr_name) == target_value:  # <-- qui NON ci va .CF
             return obj
-    raise ValueError(f"No object {attr_name} = {target_value}")
+    raise ValueError(f"No object with {attr_name} = {target_value}")
+
 
 ####################################################
 def pet_cycle():
@@ -63,7 +70,7 @@ def owner_cycle():
 
     new_action = impslist.random.randint(1,9)
     related_owner = []
-    # avalable -> lista complementare a C.animali
+    # avalable -> lista complementare a C.proprietari
     avalable = [owner for owner in impslist.Ls.OL if owner not in C.proprietari]
 
     if new_action in [3, 4, 10]:
@@ -77,15 +84,16 @@ def owner_cycle():
     #remove from list
         if not avalable:
             related_owner = impslist.random.sample(C.lar,1)[0]
-            impslist.pet.action(new_action, related_owner)
-            C.animali.remove(related_owner)
+            impslist.owner.action(new_action, related_owner)
+            C.proprietari.remove(related_owner)
 
     elif new_action in [2, 6, 7, 8, 9]:
-        related_owner = impslist.random.sample(C.animali, 1)[0]
-        impslist.pet.action(new_action, related_owner)
+        related_owner = impslist.random.sample(C.proprietari, 1)[0]
+        impslist.owner.action(new_action, related_owner)
 
     elif new_action == 1:
-        impslist.owner.action(impslist.random.choice(avalable))
+        related_owner = impslist.random.sample(C.lpr, 1)[0]
+        impslist.owner.action(new_action, related_owner)
     else:
         print("error 8")
 

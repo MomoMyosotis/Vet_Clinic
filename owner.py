@@ -26,7 +26,7 @@ class Owner:
         ffile.rtime()
 
     def pav(self):
-        print(f"{self.surname} booked a vet visit at ", end="")
+        print(f"{self.surname} booked a vet visit for ", end="")
         ffile.rtime()
 
     def register_pet(self, pet):
@@ -61,16 +61,16 @@ class Owner:
 # usare la funzione ffile.get_by_attribute(obj_list, target_value, attr_name) per trovareil nome del pet relativo
 
 def action(code, owner):
-    from currently import animali
+    from lista import PL
     # l'idea è di prendere il codice dell'animale relativo al proprietario
-    pet = ffile.gar(animali, owner.CF, "owner")
+    pet = ffile.gar(PL, owner.CF, "owner")
 
     if code == 1:
-        owner.birthday(pet)
+        owner.birthday()
     elif code == 2:
         owner.check(pet)
     elif code == 3:
-        owner.pav(pet)
+        owner.pav()
     elif code == 4:
         owner.register_pet(pet)
     elif code == 5:
