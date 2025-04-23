@@ -4,7 +4,7 @@ import ffile
 class Pet:
     # INIT METHOD COSTRUISCE I METODI -> __init__(self):
 
-    def __init__(self, species, age, weight, height, name, id, condition, Owner):
+    def __init__(self, species, age, weight, height, name, id, condition, owner):
         # attributes -> what it is or has
         self.species = species
         self.age = age
@@ -13,7 +13,7 @@ class Pet:
         self.name = name
         self.condition = condition
         self.id = id
-        self.owner = Owner
+        self.owner = owner
 
     def __str__(self):
         return f"{self.id} -> owner is: {self.owner}"

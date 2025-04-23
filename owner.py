@@ -63,30 +63,30 @@ class Owner:
 def action(code, owner):
     from currently import animali
     # l'idea è di prendere il codice dell'animale relativo al proprietario
-    pet = ffile.gar(animali, code, "name")
+    pet = ffile.gar(animali, owner.CF, "owner")
 
     if code == 1:
-        owner.birthday(owner, pet)
+        owner.birthday(pet)
     elif code == 2:
-        owner.check(owner, pet)
+        owner.check(pet)
     elif code == 3:
-        owner.pav(owner, pet)
+        owner.pav(pet)
     elif code == 4:
-        owner.register_pet(owner, pet)
+        owner.register_pet(pet)
     elif code == 5:
-        owner.report_death(owner, pet)
+        owner.report_death(pet)
     elif code == 6:
-        owner.feed_pet(owner, pet)
+        owner.feed_pet(pet)
     elif code == 7:
-        owner.walk_pet(owner, pet)
+        owner.walk_pet(pet)
     elif code == 8:
-        owner.play_with_pet(owner, pet)
+        owner.play_with_pet(pet)
     elif code == 9:
-        owner.judge_pet(owner, pet)
+        owner.judge_pet(pet)
     elif code == 10:
-        owner.adopt_pet(owner, pet)
+        owner.adopt_pet(pet)
     elif code == 11:
-        owner.abandon_pet(owner, pet)
+        owner.abandon_pet(pet)
     else:
         print("error 7")
 
