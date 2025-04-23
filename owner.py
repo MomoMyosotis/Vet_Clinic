@@ -60,10 +60,10 @@ class Owner:
 
 # usare la funzione ffile.get_by_attribute(obj_list, target_value, attr_name) per trovareil nome del pet relativo
 
-def owner_action(code, owner, peachy=None):
+def action(code, owner):
     from currently import animali
     # l'idea è di prendere il codice dell'animale relativo al proprietario
-    pet = ffile.get_by_attr(animali, code, peachy)
+    pet = ffile.gar(animali, code, "name")
 
     if code == 1:
         owner.birthday(owner, pet)

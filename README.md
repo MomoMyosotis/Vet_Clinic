@@ -1,8 +1,8 @@
-in this project I'm learning about object oriented programming in python
+in this project I'm learning about object oriented programming in python, aka Poop.
 
-yet I have much to understandso this repository will be continuosly updated as I fuck around and find out
+yet I have much to understand, thus this repository will be continuosly updated as I fuck around and find out.
 
-this project is about a veterinary clinc in which animals comes in and out as time goes by
+this project is about a veterinary clinc in which animals and people come and go as they do actions and interact with each others randomly.
 
 so at the start of the program random n pets will be in and as time goes by some will be discharged and others admitted in
 
