@@ -1,12 +1,5 @@
 # pet
-import impslist
-
-# generate a rondom time
-def rtime():
-    hour = {impslist.random.randint(1,23)}
-    minute = {impslist.random.randint(1,59)}
-    return print(f"{hour}:{minute}")
-
+import ffile
 
 class Pet:
     # INIT METHOD COSTRUISCE I METODI -> __init__(self):
@@ -30,15 +23,15 @@ class Pet:
     def birth(self):
 
         print(f"{self.name} has born at ", end="")
-        rtime()
+        ffile.rtime()
 
     def death(self):
         print(f"{self.name} has died at ", end="")
-        rtime()
+        ffile.rtime()
 
     def eat(self):
         print(f"{self.name} is eating at ", end="")
-        rtime()
+        ffile.rtime()
 
     def move(self):
         print(f"{self.name} is moving according to what being {self.species} allows")
@@ -48,20 +41,19 @@ class Pet:
 
     def sleep(self):
         print(f"{self.name} has been sleeping since: ", end="")
-        rtime()
+        ffile.rtime()
 
     def judge(self):
         print(f"{self.name} is judging you")
 
     def admitted(self):
         print(f"{self.name} has been admitted to the clinic at ", end="")
-        rtime()
+        ffile.rtime()
 
     def dismissed(self):
         print(f"{self.name} has been dismissedd from the clinc at ", end="")
-        rtime()
+        ffile.rtime()
 
-#   per avviare l'azione di ogni pet
 def action(miao, pet):
     if miao == 1:
         # Caso 1: far nascere l'animale

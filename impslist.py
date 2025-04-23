@@ -7,7 +7,9 @@ import random
 
 #       FILE INTERI
 import entitties
+import currently as C
 import lista as Ls
+import ffile #function file
 
 #       OBJS
 import pet
