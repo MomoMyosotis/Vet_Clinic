@@ -22,7 +22,7 @@ class Owner:
             print(f"*the assistant throws at {self.name} it's pet*")
 
     def check(self, pet):
-        print(f"{self.surname} called to check on {pet}", end="")
+        print(f"{self.surname} called to check on {pet} at ", end="")
         ffile.rtime()
 
     def pav(self):

@@ -16,7 +16,7 @@ class Pet:
         self.owner = owner
 
     def __str__(self):
-        return f"{self.id} -> owner is: {self.owner}"
+        return f"{self.id}" # -> owner is: {self.owner}"
 
     # methods -> what it does
 
@@ -86,6 +86,7 @@ def action(miao, pet):
     elif miao == 8:
         # Caso 8: l'animale viene ammesso in clinica
         pet.admitted()
+
     elif miao == 9:
         # Caso 9: l'animale viene dimesso dalla clinica
         pet.dismissed()
