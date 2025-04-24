@@ -28,13 +28,12 @@ def initial_check():
     impslist.Ls.pets_list()
 
 ##################################################
-#   given the CF of the owner returns the pet
+# restituisce direttamente l'oggetto Pet, non solo il nome
 def gar(obj_list, target_value, attr_name):
     for obj in obj_list:
-        if getattr(obj, attr_name) == target_value:  # <-- qui NON ci va .CF
+        if getattr(obj, attr_name) == target_value:
             return obj
     raise ValueError(f"No object with {attr_name} = {target_value}")
-
 
 ####################################################
 def pet_cycle():
@@ -42,18 +41,18 @@ def pet_cycle():
     new_action = impslist.random.randint(1,9)
     related_pet = []
     # avalable -> lista complementare a C.animali
-    avalable = [pet for pet in impslist.Ls.PL if pet not in C.animali]
+    avalable_P = [pet for pet in impslist.Ls.PL if pet not in C.animali]
 
     if new_action in [1, 8]:
     # pesca da lista di non presenti
-        if avalable:
-            related_pet = impslist.random.choice(avalable)
+        if avalable_P:
+            related_pet = impslist.random.choice(avalable_P)
             C.animali.append(related_pet)
             impslist.pet.action(new_action, related_pet)
 
     elif new_action in [2, 9]:
     #remove from list
-        if not avalable:
+        if not avalable_P:
             related_pet = impslist.random.sample(C.lar,1)[0]
             impslist.pet.action(new_action, related_pet)
             C.animali.remove(related_pet)
@@ -71,19 +70,19 @@ def owner_cycle():
     new_action = impslist.random.randint(1,9)
     related_owner = []
     # avalable -> lista complementare a C.proprietari
-    avalable = [owner for owner in impslist.Ls.OL if owner not in C.proprietari]
+    avalable_O = [owner for owner in impslist.Ls.OL if owner not in C.proprietari]
 
     if new_action in [3, 4, 10]:
     # pesca da lista di non presenti
-        if avalable:
-            related_owner = impslist.random.choice(avalable)
+        if avalable_O:
+            related_owner = impslist.random.choice(avalable_O)
             C.proprietari.append(related_owner)
             impslist.owner.action(new_action, related_owner)
 
     elif new_action in [5, 11]:
     #remove from list
-        if not avalable:
-            related_owner = impslist.random.sample(C.lar,1)[0]
+        if not avalable_O:
+            related_owner = impslist.random.sample(C.lpr,1)[0]
             impslist.owner.action(new_action, related_owner)
             C.proprietari.remove(related_owner)
 
