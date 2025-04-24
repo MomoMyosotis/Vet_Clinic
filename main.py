@@ -26,7 +26,7 @@ def main():
             #   OWNER CYCLE
             impslist.ffile.owner_cycle()
 
-        impslist.time.sleep(impslist.random.uniform(0.2 , 2))
+        impslist.time.sleep(impslist.random.uniform(0.02 , 2))
 
 main()
 # last line
