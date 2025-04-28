@@ -1,5 +1,5 @@
 # vet clinic emulator
-import impslist
+import extentions.impslist as impslist
 
 # variabili globali
 generator = 1
@@ -29,4 +29,3 @@ def main():
         impslist.time.sleep(impslist.random.uniform(0.02 , 2))
 
 main()
-# last line

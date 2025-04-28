@@ -1,5 +1,5 @@
-import impslist
-import currently as C
+import extentions.impslist as impslist
+import extentions.currently as C
 
 ##################################################
 # generate a rondom time

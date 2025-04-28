@@ -1,6 +1,6 @@
 # responsable for creaing dynamic array of recovered pets and their owners
-import lista as Ls
-import impslist
+import objects.lista as Ls
+import extentions.impslist as impslist
 
 # lar = lista animali registrati
 lar = Ls.PL

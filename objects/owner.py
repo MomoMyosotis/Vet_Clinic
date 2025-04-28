@@ -1,5 +1,5 @@
 # owner
-import ffile
+import extentions.ffile as ffile
 
 class Owner:
     def __init__(self, name, surname, CF, bday, gender):
@@ -61,7 +61,7 @@ class Owner:
 # usare la funzione ffile.get_by_attribute(obj_list, target_value, attr_name) per trovareil nome del pet relativo
 
 def action(code, owner):
-    from lista import PL
+    from objects.lista import PL
     # l'idea è di prendere il codice dell'animale relativo al proprietario
     pet = ffile.gar(PL, owner.CF, "owner")
 

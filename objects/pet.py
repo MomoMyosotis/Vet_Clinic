@@ -1,5 +1,5 @@
 # pet
-import ffile
+import extentions.ffile as ffile
 
 class Pet:
     # INIT METHOD COSTRUISCE I METODI -> __init__(self):

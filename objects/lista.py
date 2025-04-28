@@ -1,4 +1,4 @@
-import entitties
+import objects.entitties as entitties
 
 # lista di tutti i proprietari
 OL = []
