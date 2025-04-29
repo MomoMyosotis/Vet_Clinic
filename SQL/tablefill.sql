@@ -1,0 +1,2 @@
+-- qui devo mportare la query per
+-- caricare le cose sulle table
