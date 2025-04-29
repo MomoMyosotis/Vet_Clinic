@@ -2,11 +2,11 @@
 
 # Dettagli della connessione al database
 db_config = {
-    'dbname': 'Owners',
-    'user': 'postgres',
-    'password': '160718',
-    'host': 'localhost',    # Lascia "localhost" se usi PostgreSQL in locale
-    'port': '5432'          # Porta di default per PostgreSQL
+    'dbname': '',     # database name
+    'user': '',     # username
+    'password': '',   # password
+    'host': 'localhost',    # leave "localhost" if using PostgreSQL in local
+    'port': '5432'          # Default  door for PostgreSQL
 }
 
 # last line
