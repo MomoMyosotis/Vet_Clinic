@@ -29,6 +29,7 @@ def initial_check():
 
 ##################################################
 # restituisce direttamente l'oggetto Pet, non solo il nome
+# gar da rivedere per fare una query SQL
 def gar(obj_list, target_value, attr_name):
     for obj in obj_list:
         if getattr(obj, attr_name) == target_value:

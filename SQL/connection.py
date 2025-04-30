@@ -1,15 +1,17 @@
+# first line
+
 import psycopg2
 from credentials import db_config as db
 
 #   create the db - just a bunch of empty tables
 def make_db(cur):
-#   apre il file in lettura e copia il contenuto come fosse una stringa
+    #   apre il file in lettura e copia il contenuto come fosse una stringa
     with open('db.sql') as file:
         db = file.read()
-#   passa la stringa come comando
+    #   passa la stringa come comando
     cur.execute(db)
 
-# per stampare i risultati
+    # per stampare i risultati
     rows = cur.fetchall()
     for rw in rows:
         print(rw)
@@ -37,16 +39,29 @@ def first_connection():
         make_db(cur)
 
 #   chiude cursore e connessione
+        cur.commit()
         cur.close()
     cnt.close()
 
 #   fills the db's tables
-def second_db():
-
-    def fill_db(cur):
-        with open('tablefill.sql') as blblbl:
-            quack = file.read(blblbl)
-        cur.execute(quack)
+def second_db(bl):
+# bl = miao
+    def fill_query(miao, cur):
+        if miao == 1:
+            # tabella owner
+            with open('owner tablefiltìl.sql') as file:
+                quack = file.read()
+            cur.execute(quack)
+        elif miao == 2:
+            # tabella illness
+            with open("illness tablefill.sql") as file:
+                peachy = file.read()
+            cur.execute(peachy)
+        elif miao == 3:
+            # tabella pet
+            with open("pets tablefill.sql") as file:
+                lemon = file.read()
+            cur.execute(lemon)
 
     cnt = connect()
     if cnt is None:
@@ -54,6 +69,6 @@ def second_db():
     else:
         print ("Connection established correctly, yay!")
         cur = psycopg2.cursor()
-        fill_db(cur)
+        fill_query(bl, cur)
 
 # last line
