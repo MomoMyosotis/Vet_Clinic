@@ -35,11 +35,11 @@ def first_connection():
 
     cnt = connect()
     if cnt is None:
-        print ("couldn't conect to db or somme other shit you gotta check.\nfile is connection.py")
+        print ("couldn't connect to db or somme other shit you gotta check.\nfile is connection.py")
         return
     else:
         print ("Connection established correctly, yay!")
-        cur = psycopg2.cursor()
+        cur = cnt.cursor()
         make_db(cur)
 
 #   chiude cursore e connessione
@@ -75,6 +75,7 @@ def second_db(bl):
         cur = psycopg2.cursor()
         fill_query(bl, cur)
 
+# flow
 first_connection()
 
 # last line
