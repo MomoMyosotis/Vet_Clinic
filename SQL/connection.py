@@ -1,7 +1,7 @@
 # first line
 
 import psycopg2
-from credentials import db_config as db
+import json
 
 #   create the db - just a bunch of empty tables
 def make_db(cur):
@@ -16,14 +16,18 @@ def make_db(cur):
     for rw in rows:
         print(rw)
 
-#   connects with the server
+# Connects with the server
 def connect():
-#   connessione al server di PostgreSQL
+    # Connessione al server di PostgreSQL
     try:
-        conn = psycopg2.connect(db)
+        # Open the credentials file and load the JSON data
+        with open("credentials.json", "r") as nooty:
+            pruty = json.load(nooty)  # Load JSON content into a dictionary
+        # Use the loaded dictionary for the connection
+        conn = psycopg2.connect(**pruty)
         return conn
     except Exception as e:
-        print ("failed to establish connection. " + e)
+        print("Failed to establish connection:\n", e)
         return None
 
 #   first interation with the db
@@ -65,10 +69,12 @@ def second_db(bl):
 
     cnt = connect()
     if cnt is None:
-        print ("Connection-chan is here UwU\nsomething went wrong *sniff sniff*...")
+        print ("Connection-chan has left UwU\n *sniff sniff*...")
     else:
-        print ("Connection established correctly, yay!")
+        print ("Connection-cha is here, yay!")
         cur = psycopg2.cursor()
         fill_query(bl, cur)
+
+first_connection()
 
 # last line
