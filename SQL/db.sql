@@ -8,20 +8,20 @@ CREATE TABLE IF NOT EXISTS owners (
     name VARCHAR(20),
     surname VARCHAR(20),
     birthday DATE,
-    gender BOOLEAN
-)
+    gender VARCHAR(1)
+);
 
 --          table for the illness
 CREATE TABLE IF NOT EXISTS illness (
 
     code SERIAL PRIMARY KEY,
-    name VARCHAR(30),
-    descritpion VARCHAR(100),
-    cure VARCHAR(30) NULL,
+    name VARCHAR(50),
+    description VARCHAR(100),
+    cure VARCHAR(50) NULL,
     lethality BOOLEAN,
     life_cycles INT
 
-)
+);
 
 --      table for the pets
 
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS pets (
     birth DATE NULL,
     death DATE NULL,
     stato BOOLEAN,
-    condition VARCHAR(30) REFERENCES illness(name) NULL,
-    owner_id VARCHAR(20) REFERENCES owner(CF) NULL
+    condition INT REFERENCES illness(code) NULL,
+    owner_id VARCHAR(20) REFERENCES owners(CF) NULL
 
-)
+);
 
 
 -- last line

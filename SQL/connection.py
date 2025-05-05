@@ -3,6 +3,18 @@
 import psycopg2
 import json
 
+def close(cur, cnt):
+    cur.close()
+    cnt.close()
+
+# print table
+def tprint (cur):
+    # per stampare i risultati
+    rows = cur.fetchall()
+    for rw in rows:
+        print(rw)
+
+
 #   create the db - just a bunch of empty tables
 def make_db(cur):
     #   apre il file in lettura e copia il contenuto come fosse una stringa
@@ -10,20 +22,18 @@ def make_db(cur):
         db = file.read()
     #   passa la stringa come comando
     cur.execute(db)
+    print("tables created, now gotta populate 'em")
 
-    # per stampare i risultati
-    rows = cur.fetchall()
-    for rw in rows:
-        print(rw)
 
 # Connects with the server
 def connect():
     # Connessione al server di PostgreSQL
-    try:
+
         # Open the credentials file and load the JSON data
-        with open("credentials.json", "r") as nooty:
-            pruty = json.load(nooty)  # Load JSON content into a dictionary
-        # Use the loaded dictionary for the connection
+    with open("credentials.json", "r") as nooty:
+        pruty = json.load(nooty)
+    try:
+        # ** -> scompone il dict in parametri
         conn = psycopg2.connect(**pruty)
         return conn
     except Exception as e:
@@ -41,41 +51,68 @@ def first_connection():
         print ("Connection established correctly, yay!")
         cur = cnt.cursor()
         make_db(cur)
+        # commit() è un modulo  di connect
+        cnt.commit()
+    return cnt, cur
 
-#   chiude cursore e connessione
-        cur.commit()
-        cur.close()
-    cnt.close()
 
 #   fills the db's tables
-def second_db(bl):
-# bl = miao
+def populate(cnt, cur):
     def fill_query(miao, cur):
+        if miao == 0:
+            print()
         if miao == 1:
             # tabella owner
-            with open('owner tablefiltìl.sql') as file:
-                quack = file.read()
-            cur.execute(quack)
+            try:
+                with open("owner tablefill.sql") as file:
+                    quack = file.read()
+                    quack = str(quack)
+                cur.execute(quack)
+            except Exception as e:
+                print("error 9.\n " + str(e))
+            else:
+                print("\nowner table done")
+                cnt.commit()
+
         elif miao == 2:
             # tabella illness
-            with open("illness tablefill.sql") as file:
-                peachy = file.read()
-            cur.execute(peachy)
+            try:
+                with open("illness tablefill.sql") as file:
+                    peachy = file.read()
+                cur.execute(peachy)
+            except Exception as e:
+                print("error 10.\n " + str(e))
+            else:
+                print("\nillness table done")
+                cnt.commit()
+
         elif miao == 3:
             # tabella pet
-            with open("pets tablefill.sql") as file:
-                lemon = file.read()
-            cur.execute(lemon)
+            try:
+                with open("pets tablefill.sql") as file:
+                    lemon = file.read()
+                cur.execute(lemon)
+            except Exception as e:
+                print("error 11.\n " + str(e))
+            else:
+                print("\npets table done")
+                cnt.commit()
 
-    cnt = connect()
-    if cnt is None:
-        print ("Connection-chan has left UwU\n *sniff sniff*...")
-    else:
-        print ("Connection-cha is here, yay!")
-        cur = psycopg2.cursor()
+    print("we're populating")
+
+    bl = 0
+    while bl in [0, 1, 2, 3]:
         fill_query(bl, cur)
+        bl +=1
+
+    while bl in [0, 1, 2, 3]:
+        tprint(bl, cur)
+        bl +=1
 
 # flow
-first_connection()
+def flow():
+    connessione, cursore = first_connection()
+    populate(connessione, cursore)
 
+flow()
 # last line
