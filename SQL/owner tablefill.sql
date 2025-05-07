@@ -11,5 +11,5 @@ VALUES
     ('Giulia', 'Verdi', 'G4L123V', '1995-05-22', 'f'),
     ('Stefano', 'Dambrosio', 'S3TA1C0', '1988-06-12', 't'),
     ('Francesca', 'Giansanti', 'F4NC3S9', '1997-07-05', 'f');
-
+ON CONFLICT (CF) DO NOTHING;
 -- last line

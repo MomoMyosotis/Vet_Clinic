@@ -67,6 +67,7 @@ def populate(cnt, cur):
                 with open("owner tablefill.sql") as file:
                     quack = file.read()
                     quack = str(quack)
+                    quack = quack
                 cur.execute(quack)
             except Exception as e:
                 print("error 9.\n " + str(e))
@@ -79,6 +80,7 @@ def populate(cnt, cur):
             try:
                 with open("illness tablefill.sql") as file:
                     peachy = file.read()
+                    peachy = peachy + "; ON CONFLICT (code) DO NOTHING;"
                 cur.execute(peachy)
             except Exception as e:
                 print("error 10.\n " + str(e))
@@ -91,6 +93,7 @@ def populate(cnt, cur):
             try:
                 with open("pets tablefill.sql") as file:
                     lemon = file.read()
+                    lemon = lemon + "; ON CONFLICT (id) DO NOTHING;"
                 cur.execute(lemon)
             except Exception as e:
                 print("error 11.\n " + str(e))

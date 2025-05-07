@@ -3,8 +3,8 @@
 -- si usa una query per riempire la tabella con gli obj illness
 
 -- Inserimento delle malattie con i dati richiesti
-
-INSERT INTO illness (name, description, cure, lethality, life_cycles)
+;
+INSERT INTO illness(name, description, cure, lethality, life_cycles)
 VALUES
     ('Sonnite acuta', 'Infiammazione acuta delle vie respiratorie', 'Riposo e antibiotici', FALSE, 1),
     ('Flammable fur', 'Pelo altamente infiammabile', 'Controllo ambientale', TRUE, 2),
@@ -24,7 +24,7 @@ VALUES
     ('Not of this world', 'Comportamento alienante e distacco dalla realtà', 'Supporto psicologico', TRUE, 7),
     ('Electrified fur', 'Pelo che genera scariche elettriche', 'Isolamento dal campo elettrico', TRUE, 2),
     ('Master of flips', 'Capacità di eseguire acrobazie in modo perfetto', 'Nessuna cura necessaria', FALSE, 3),
-    ('peachy', 'Condizione psicologica di benessere e tranquillità', 'Relax e meditazione', FALSE, 1);
+    ('peachy', 'Condizione psicologica di benessere e tranquillità', 'Relax e meditazione', FALSE, 1)
 
 
 

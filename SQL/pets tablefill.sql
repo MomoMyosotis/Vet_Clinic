@@ -1,8 +1,7 @@
 -- first line
 
-INSERT INTO pets (name, species, age, peso, height, stato, owner_id)
+INSERT INTO pets(name, species, age, peso, height, stato, owner_id)
 VALUES
-(
     ('Pollosauro', 'Nooty', 1.2, 120, 30, 'healthy', 'MY050T1S'),
     ('Sonnus canis', 'bianca', 20, 30, 100, 'sick', 'P4P4V3R1'),
     ('strambus selvaticus', 'weirdass thing', 911, 84, 69, 'healthy', 'G1R450L1'),
@@ -25,6 +24,5 @@ VALUES
     ('Foca Acrobatica', 'Flippy', 70, 100, 150, 'healthy', 'G4L123V'),
     ('peachy penguosus', 'pingu', 10, 2, 40, 'sick', 'P4P4V3R1');
 
-)
 
 -- last line
