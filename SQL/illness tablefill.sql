@@ -26,6 +26,6 @@ VALUES
     ('Master of flips', 'Capacità di eseguire acrobazie in modo perfetto', 'Nessuna cura necessaria', FALSE, 3),
     ('peachy', 'Condizione psicologica di benessere e tranquillità', 'Relax e meditazione', FALSE, 1)
 
-
+ON CONFLICT(code) DO NOTHING
 
 -- last line

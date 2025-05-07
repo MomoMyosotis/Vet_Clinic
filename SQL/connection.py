@@ -1,19 +1,29 @@
 # first line
 
+import time
+import os
 import psycopg2
 import json
+from tabulate import tabulate
 
 def close(cur, cnt):
     cur.close()
     cnt.close()
 
 # print table
-def tprint (cur):
+def tprint (cur, tname):
     # per stampare i risultati
-    rows = cur.fetchall()
-    for rw in rows:
-        print(rw)
-
+    try:
+        # Esegui la query per ottenere tutti i dati dalla tabella
+        cur.execute(f"SELECT * FROM {tname};")
+        rows = cur.fetchall()
+        if rows:
+            # Stampa la tabella con `tabulate`
+            print(tabulate(rows, headers=[], tablefmt="psql"))
+        else:
+            print(f"No data found in table {tname}.")
+    except Exception as e:
+        print(f"Error fetching data from table {tname}: {str(e)}")
 
 #   create the db - just a bunch of empty tables
 def make_db(cur):
@@ -23,7 +33,6 @@ def make_db(cur):
     #   passa la stringa come comando
     cur.execute(db)
     print("tables created, now gotta populate 'em")
-
 
 # Connects with the server
 def connect():
@@ -55,67 +64,88 @@ def first_connection():
         cnt.commit()
     return cnt, cur
 
-
 #   fills the db's tables
 def populate(cnt, cur):
     def fill_query(miao, cur):
         if miao == 0:
-            print()
+            print("starting loop")
+            return 1
+
         if miao == 1:
             # tabella owner
             try:
                 with open("owner tablefill.sql") as file:
                     quack = file.read()
                     quack = str(quack)
-                    quack = quack
-                cur.execute(quack)
+                    cur.execute(quack)
+                file.close()
             except Exception as e:
                 print("error 9.\n " + str(e))
+                return None
             else:
-                print("\nowner table done")
+                print("\nowner table... done")
+
+                time.sleep(2)
+                os.system("clear")
+                tprint(cur, "owners")
                 cnt.commit()
+                return "quack"
 
         elif miao == 2:
             # tabella illness
             try:
                 with open("illness tablefill.sql") as file:
                     peachy = file.read()
-                    peachy = peachy + "; ON CONFLICT (code) DO NOTHING;"
-                cur.execute(peachy)
+                    peachy = str(peachy)
+                    cur.execute(peachy)
+                file.close()
             except Exception as e:
                 print("error 10.\n " + str(e))
+                return None
             else:
-                print("\nillness table done")
+                print("\nillness table... done")
+
+                time.sleep(2)
+                os.system("clear")
+                tprint(cur, "illness")
                 cnt.commit()
+                return "pru"
 
         elif miao == 3:
             # tabella pet
             try:
                 with open("pets tablefill.sql") as file:
                     lemon = file.read()
-                    lemon = lemon + "; ON CONFLICT (id) DO NOTHING;"
-                cur.execute(lemon)
+                    lemon = str(lemon)
+                    cur.execute(lemon)
+                file.close()
             except Exception as e:
                 print("error 11.\n " + str(e))
+                return None
             else:
-                print("\npets table done")
+                print("\npets table... done")
+
+                time.sleep(2)
+                os.system("clear")
+                tprint(cur, "pets")
                 cnt.commit()
+                return "miao"
 
     print("we're populating")
 
     bl = 0
     while bl in [0, 1, 2, 3]:
-        fill_query(bl, cur)
+        checking = fill_query(bl, cur)
         bl +=1
-
-    while bl in [0, 1, 2, 3]:
-        tprint(bl, cur)
-        bl +=1
+        if checking is None:
+            return
 
 # flow
 def flow():
     connessione, cursore = first_connection()
-    populate(connessione, cursore)
+    cur = populate(connessione, cursore)
+    time.sleep(2)
+    os.system("clear")
 
 flow()
 # last line
