@@ -1,0 +1,35 @@
+@startuml Vet_Clinic_Flow
+
+left to right direction
+skinparam packageStyle rectangle
+
+package "Main Flow" {
+    [main.py] --> [impslist.py] : import
+    [main.py] --> [ffile.py] : usa
+    [main.py] --> [connection.py] : setup DB
+}
+
+package "Execution Logic" {
+    [ffile.py] --> [currently.py] : usa
+    [currently.py] --> [lista.py] : usa liste
+    [lista.py] --> [entitties.py] : importa oggetti
+    [entitties.py] --> [owner.py] : istanzia Owner
+    [entitties.py] --> [pet.py] : istanzia Pet
+}
+
+[ffile.py] --> [pet.py] : pet_cycle()
+[ffile.py] --> [owner.py] : owner_cycle()
+
+package "Objects" {
+    [owner.py] --> [pet.py] : possiede (via CF)
+    [pet.py] --> [illness.py] : ha condizione
+}
+
+package "Database" {
+    [connection.py] --> [db.sql] : crea tabelle
+    [connection.py] --> [owner tablefill.sql] : riempie
+    [connection.py] --> [pets tablefill.sql] : riempie
+    [connection.py] --> [illness tablefill.sql] : riempie
+}
+
+@enduml
