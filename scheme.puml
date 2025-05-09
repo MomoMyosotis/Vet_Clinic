@@ -1,35 +1,55 @@
-@startuml Vet_Clinic_Flow
+@startuml
+title Vet Clinic Emulator - Struttura Classi e Moduli
 
-left to right direction
-skinparam packageStyle rectangle
-
-package "Main Flow" {
-    [main.py] --> [impslist.py] : import
-    [main.py] --> [ffile.py] : usa
-    [main.py] --> [connection.py] : setup DB
+package "extentions.impslist" {
+  class random
+  class time
+  class ffile {
+    +initial_check()
+    +cls()
+    +pet_cycle()
+    +owner_cycle()
+  }
+  class C {
+    +dynamic_pets(quack)
+    +dynamic_owners(miao)
+  }
 }
 
-package "Execution Logic" {
-    [ffile.py] --> [currently.py] : usa
-    [currently.py] --> [lista.py] : usa liste
-    [lista.py] --> [entitties.py] : importa oggetti
-    [entitties.py] --> [owner.py] : istanzia Owner
-    [entitties.py] --> [pet.py] : istanzia Pet
+package "objects.lista" {
+  class PL
+  class OL
+  class Lista {
+    +print_List()
+  }
 }
 
-[ffile.py] --> [pet.py] : pet_cycle()
-[ffile.py] --> [owner.py] : owner_cycle()
+package "connections.py" {
+  class Connections {
+    - animali : list
+    - proprietari : list
+    + dynamic_pets(quack)
+    + dynamic_owners(miao)
+  }
 
-package "Objects" {
-    [owner.py] --> [pet.py] : possiede (via CF)
-    [pet.py] --> [illness.py] : ha condizione
+  Connections --> PL : sample()
+  Connections --> OL : sample()
+  Connections --> Lista : print_List()
 }
 
-package "Database" {
-    [connection.py] --> [db.sql] : crea tabelle
-    [connection.py] --> [owner tablefill.sql] : riempie
-    [connection.py] --> [pets tablefill.sql] : riempie
-    [connection.py] --> [illness tablefill.sql] : riempie
-}
+package "main.py" {
+  class Main {
+    +main()
+    - generator : int
+  }
 
+  Main --> ffile : initial_check()
+  Main --> ffile : cls()
+  Main --> C : dynamic_pets()
+  Main --> C : dynamic_owners()
+  Main --> ffile : pet_cycle()
+  Main --> ffile : owner_cycle()
+  Main --> random : randint(), uniform()
+  Main --> time : sleep()
+}
 @enduml
