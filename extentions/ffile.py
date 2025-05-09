@@ -52,7 +52,7 @@ def pet_cycle():
             impslist.pet.action(new_action, related_pet)
 
     elif new_action in [2, 9]:
-    #remove from list
+    # remove from list
         if not avalable_P:
             related_pet = impslist.random.sample(C.lar,1)[0]
             impslist.pet.action(new_action, related_pet)
@@ -96,5 +96,8 @@ def owner_cycle():
         impslist.owner.action(new_action, related_owner)
     else:
         print("error 8")
+
+def illness_cycle():
+    print("WIP  ^^")
 
 # last line

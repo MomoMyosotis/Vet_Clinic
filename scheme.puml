@@ -1,55 +1,70 @@
 @startuml
-title Vet Clinic Emulator - Struttura Classi e Moduli
+title Flusso Dettagliato al Massimo - Vet Clinic Emulator 🧪🐶
 
-package "extentions.impslist" {
-  class random
-  class time
-  class ffile {
-    +initial_check()
-    +cls()
-    +pet_cycle()
-    +owner_cycle()
-  }
-  class C {
-    +dynamic_pets(quack)
-    +dynamic_owners(miao)
-  }
+start
+
+:Start main.py;
+
+:Import extentions.impslist as impslist;
+:Import connections.py (alias C);
+
+:Inizializza generator = 1;
+
+partition "Avvio - Preparazione Ambiente" {
+  :ffile.initial_check();
+  note right
+    Controlla l'integrità del file dati o lo inizializza
+  end note
+
+  :ffile.cls();
+  note right
+    Pulisce lo schermo / ambiente terminale
+  end note
 }
 
-package "objects.lista" {
-  class PL
-  class OL
-  class Lista {
-    +print_List()
-  }
+partition "Generazione Dati Casuali" {
+  :num_pets = random.randint(1, 21);
+  :C.dynamic_pets(num_pets);
+
+  if (num_pets > len(PL)) then (errore)
+    :print("error 3");
+  else
+    :campione = random.sample(PL, num_pets);
+    :animali.extend(campione);
+    :Lista.print_List(animali, "pets");
+  endif
+
+  :num_owners = random.randint(1, 10);
+  :C.dynamic_owners(num_owners);
+
+  if (num_owners > len(OL)) then (errore)
+    :print("error 8");
+  else
+    :campione = random.sample(OL, num_owners);
+    :proprietari.extend(campione);
+    :Lista.print_List(proprietari, "owners");
+  endif
 }
 
-package "connections.py" {
-  class Connections {
-    - animali : list
-    - proprietari : list
-    + dynamic_pets(quack)
-    + dynamic_owners(miao)
-  }
+repeat
+  :generator = random.randint(1, 2);
 
-  Connections --> PL : sample()
-  Connections --> OL : sample()
-  Connections --> Lista : print_List()
-}
+  if (generator == 1) then ("Pet cycle")
+    :ffile.pet_cycle();
+    note right
+      Esegue una logica legata agli animali registrati
+      (interazioni simulate, eventi, aggiornamenti ecc.)
+    end note
+  else ("Owner cycle")
+    :ffile.owner_cycle();
+    note right
+      Simula azioni, eventi o modifiche da parte dei proprietari
+    end note
+  endif
 
-package "main.py" {
-  class Main {
-    +main()
-    - generator : int
-  }
+  :delay = random.uniform(0.02, 2);
+  :time.sleep(delay);
 
-  Main --> ffile : initial_check()
-  Main --> ffile : cls()
-  Main --> C : dynamic_pets()
-  Main --> C : dynamic_owners()
-  Main --> ffile : pet_cycle()
-  Main --> ffile : owner_cycle()
-  Main --> random : randint(), uniform()
-  Main --> time : sleep()
-}
+repeat while (True)
+
 @enduml
